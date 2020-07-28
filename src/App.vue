@@ -1,21 +1,27 @@
 <template>
-    <div id="app"></div>
+    <div id="app">
+        <QuotesMain subtitle="Inspiration for love, life and motivation" />
+    </div>
 </template>
 
 <script>
+import QuotesMain from './components/QuotesMain.vue';
 export default {
     name: 'App',
-    components: {},
+    components: { QuotesMain },
 };
 </script>
 
 <style>
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    /* font-family: Avenir, Helvetica, Arial, sans-serif; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+
+    background-color: rgb(190, 190, 190);
+    color: #222;
+    margin: 40px 20px;
+    padding: 5px 25px 30px;
+    border-radius: 8px;
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
     <div>
         <h1>Quotes App</h1>
+
+        <div class="add-quote">
+            <quote-add :addQuote="addQuote"></quote-add>
+        </div>
         <div class="blockquote-wrapper">
             <quote
                 v-for="quote in quotes"
@@ -16,11 +20,24 @@
 <script>
 import AllQuotes from '../quotesDB.js';
 import Quote from './Quote.vue';
+import QuoteAdd from './QuoteAdd.vue';
+
+/*
+ * generator to get ID
+ */
+function* genID(initialID) {
+    while (true) {
+        yield initialID++;
+    }
+}
+
+const getID = genID(3333);
 
 export default {
     name: 'QuoteMain',
     components: {
         quote: Quote,
+        'quote-add': QuoteAdd,
     },
     data() {
         return {
@@ -30,6 +47,11 @@ export default {
     methods: {
         removeQuote(id) {
             this.quotes.splice(this.quotes.indexOf(id), 1);
+        },
+        addQuote(quote) {
+            let id = getID.next().value;
+            quote.id = id;
+            this.quotes.unshift(quote);
         },
     },
 };
@@ -52,5 +74,15 @@ h1 {
     flex-wrap: wrap;
     padding: 0 20px;
     margin-top: 40px;
+}
+
+.add-quote {
+    background-color: rgb(65, 65, 65);
+    color: #ccc;
+    padding: 10px 20px;
+    margin: 50px auto 0 auto;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 8px;
 }
 </style>

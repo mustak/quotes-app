@@ -93,11 +93,13 @@ export default {
     },
     methods: {
         checkQuote() {
-            this.addQuote({
-                author: this.author,
-                source: this.source,
-                content: this.content,
-            });
+            if (!this.$v.$invalid) {
+                this.addQuote({
+                    author: this.author,
+                    source: this.source,
+                    content: this.content,
+                });
+            }
         },
         validationStatus(validation) {
             return {

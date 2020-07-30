@@ -1,8 +1,8 @@
 <template>
     <section>
-        <div class="header">
+        <div class="header cursor" @click="show = !show">
             <h3>New Quote</h3>
-            <span @click="show = !show" class="cursor"
+            <span
                 ><span v-if="!show">&dtri;</span>
                 <span v-else>&times;</span></span
             >

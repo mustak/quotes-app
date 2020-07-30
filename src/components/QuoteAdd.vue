@@ -99,6 +99,9 @@ export default {
                     source: this.source,
                     content: this.content,
                 });
+                this.author = '';
+                this.source = '';
+                this.content = '';
             }
         },
         validationStatus(validation) {

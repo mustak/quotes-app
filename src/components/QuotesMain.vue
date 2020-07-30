@@ -2,6 +2,8 @@
     <div>
         <h1>Quotes App</h1>
 
+        <div><progress-bar :total="quotes.length"></progress-bar></div>
+
         <div class="add-quote">
             <quote-add :addQuote="addQuote"></quote-add>
         </div>
@@ -21,6 +23,7 @@
 import AllQuotes from '../quotesDB.js';
 import Quote from './Quote.vue';
 import QuoteAdd from './QuoteAdd.vue';
+import ProgressBar from './QuoteProgressbar.vue';
 
 /*
  * generator to get ID
@@ -38,6 +41,7 @@ export default {
     components: {
         quote: Quote,
         'quote-add': QuoteAdd,
+        'progress-bar': ProgressBar,
     },
     data() {
         return {
